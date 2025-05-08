@@ -62,8 +62,14 @@ WSGI_APPLICATION = 'core.project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': '/Users/saemi/src/Core/db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'pro_django',
+        'USER': 'pro_django',
+        'PASSWORD': 'pro_django',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
+        'ATOMIC_REQUESTS': True,
+        'CONN_MAX_AGE': 0,
     }
 }
 

@@ -1,0 +1,32 @@
+version: '3.9'
+
+services:
+
+  db:
+    image: postgres:14.2-alpine
+    restart: unless-stopped
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_DB: pro_django
+      POSTGRES_USER: pro_django
+      POSTGRES_PASSWORD: pro_django
+    volumes:
+      - postgresql-data:/var/lib/postgresql/data
+
+  app:
+    build: .
+    restart: unless-stopped
+    ports:
+      - '8080:8080'
+    depends_on:
+      - db
+    environment:
+      CORESETTINGS_DATABASES: '{"default":{"HOST":"db"}}'
+      # /core/project/settings/__init__.py line 13 참고
+      # prod.py 아직 작성 전
+      CORESETTINGS_LOCAL_SETTINGS_PATH: 'local/settings.prod.py'
+
+volumes:
+  postgresql-data:
+    driver: local

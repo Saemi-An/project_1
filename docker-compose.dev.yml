@@ -1,0 +1,19 @@
+version: '3.9'
+
+services:
+
+  db:
+    image: postgres:14.2-alpine
+    restart: unless-stopped   # 서버 시스템 리부팅을 한 뒤에 자동으로 시작되도록
+    ports:
+      - '5432:5432'   # 호스트포트:컨테이너포트
+    environment:
+      POSTGRES_DB: pro_django
+      POSTGRES_USER: pro_django
+      POSTGRES_PASSWORD: pro_django
+    volumes:
+      - postgresql-data:/var/lib/postgresql/data
+
+volumes:
+  postgresql-data:
+    driver: local
