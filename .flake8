@@ -1,0 +1,20 @@
+# flake8 설정 파일
+[flake8]
+# ignore = C101,D403,F403,F405,I100,I201,W503,W504   # 무시할 오류들
+ignore = C101
+exclude =
+    **/migrations/*,
+    .git,
+    __pycache__,
+    .venv
+filename = *.py
+accept-encodings = utf-8
+inline-quotes = single
+# 하나의 함수가 갖을 수 있는 최대 복잡도. 워닝 나면 쪼개서 리팩토링 필요함.
+max-complexity = 12
+max-linenumber = 500
+max-line-length = 119
+multiline-quotes = double
+# 이 특정 파일은 무시함
+per-file-ignores =
+    cooking_core/project/settings/templates/settings.dev.py:F821

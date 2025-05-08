@@ -1,0 +1,35 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+# 해당 문서는 어떤 hook들을 어디에서 다운받아 사용해야 하는지를 기술함
+# hooks: 내 코드를 점검할 코드 스니펫 (실행 환경 정의)
+# repo: 훅이 있는 곳
+# yapf, isort 같은 도구들(코드 스타일 정리)의 세부 설정값은 .toml 파일에서 설정 (도구들의 행동 규칙 정의)
+repos:
+  - repo: https://github.com/pycqa/isort
+    rev: 5.12.0
+    hooks:
+      - id: isort
+        name: isort (python)
+  - repo: https://github.com/pre-commit/mirrors-yapf
+    rev: v0.31.0
+    hooks:
+      - id: yapf
+        additional_dependencies: [ toml ]
+  # flake8가: 깃 커밋 전 자동 실행
+  - repo: https://github.com/PyCQA/flake8
+    rev: 4.0.1
+    hooks:
+      - id: flake8
+        # hook이 의존하는 패키지
+        additional_dependencies:
+          - flake8-bugbear
+          - flake8-builtins
+          - flake8-coding
+          - flake8-import-order
+          - flake8-polyfill
+          - flake8-quotes
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: 'v0.910'
+    hooks:
+      - id: mypy
+        additional_dependencies: [ types-requests, types-PyYAML==5.4.3, types-toml ]
