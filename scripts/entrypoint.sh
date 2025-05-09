@@ -11,5 +11,9 @@ $RUN_MANAGE_PY collectstatic --no-input
 echo 'Running migrations...'
 $RUN_MANAGE_PY migrate --no-input
 
-exec poetry run -m core.project.wsgi:application -p 8080 -b 0.0.0.0
-exec $RUN_MANAGE_PY runserver
+echo 'Starting Gunicorn...'
+# /gunicorn 디렉토리가 존재하는 상태에서 gunicorn.sock 자동 생성됨
+# 컨테이너 내부 경로 기준으로 작성된 path이기 때문에 컴포즈에서 ./shared/gunicorn와 연결됨
+exec poetry run gunicorn core.project.wsgi:application \
+    --bind unix:/gunicorn/gunicorn.sock \
+    --workers 3
