@@ -24,8 +24,10 @@ services:
     environment:
       CORESETTINGS_DATABASES: '{"default":{"HOST":"db"}}'
       # /core/project/settings/__init__.py line 13 참고
-      # prod.py 아직 작성 전
       CORESETTINGS_LOCAL_SETTINGS_PATH: 'local/settings.prod.py'
+    # 호스트 - 컨테이너 간 소켓파일 공유를 위한 앱 볼륨
+    volumes:
+      - ./shared/gunicorn:/gunicorn
 
 volumes:
   postgresql-data:
