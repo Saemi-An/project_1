@@ -10,7 +10,7 @@ ENV PYTHONUNBUFFERED 1
 # To add current directory to python's path --> When importing my own modules, it makes it easier for Python to find those.
 ENV PYTHONPATH .
 # In order to enable env-prefix from core/project/settings/__init__.py so that a if statement from docker.py to be true.
-ENV CORESETTINGS_IN_DOCKER true
+ENV CORE_SETTINGS_IN_DOCKER true
 
 # Install system dependencies(?)
 RUN set -xe \

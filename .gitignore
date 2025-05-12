@@ -76,3 +76,6 @@ nosetests.xml
 
 # mypy
 .mypy_cache
+
+# 테스트
+/test
