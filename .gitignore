@@ -77,5 +77,8 @@ nosetests.xml
 # mypy
 .mypy_cache
 
+# static & gunicorn for prod
+/shared
+
 # 테스트
 /test

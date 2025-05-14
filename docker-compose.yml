@@ -24,7 +24,7 @@ services:
     environment:
       CORE_SETTINGS_DATABASES: '{"default":{"HOST":"db"}}'
       CORE_SETTINGS_LOCAL_SETTINGS_PATH: 'local/settings.prod.py'
-    # 호스트 - 컨테이너 간 소켓파일 공유를 위한 앱 볼륨
+    # 호스트 - 컨테이너 간 소켓파일 공유를 위한 앱 볼륨 마운트
     volumes:
       - ./shared/gunicorn:/gunicorn
 
