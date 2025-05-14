@@ -30,6 +30,7 @@ jobs:
           HOST target
             HostName $SSH_HOST
             USER $SSH_USER
+            Port 5298
             IdentityFile ~/.ssh/cicd
             LogLevel ERROR
             StrictHostKeyChecking no
