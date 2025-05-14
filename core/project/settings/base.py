@@ -83,7 +83,9 @@ USE_TZ = False  # 글로벌 서비스 안함. 그래서 Aware datetime 객체(da
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
+# STATIC FILES
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'shared/static'  # type: ignore # noqa: F821
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
