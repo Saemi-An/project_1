@@ -12,6 +12,7 @@ concurrency:
   cancel-in-progress: true
 
 # 수행할 작업
+# 테스트용
 jobs:
   deploy:
     name: 배포
