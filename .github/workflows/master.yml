@@ -41,4 +41,4 @@ jobs:
           docker-compose down && \
           git pull && \
           docker-compose build && \
-          docker-compose -d --force-recreate"
+          docker-compose up -d --force-recreate"
